@@ -44,6 +44,18 @@ class GuessPage extends StatelessWidget {
         keyboardType: TextInputType.number,
       );
 
+  Widget get _guessHistoryListView => Container(
+        height: 320,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 2),
+          borderRadius: BorderRadius.circular(32),
+        ),
+        child: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (context, index) => ListTile(title: Text('Item $index')),
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +73,27 @@ class GuessPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12),
               child: _guessTextField,
+            ),
+            const Divider(color: Colors.grey, thickness: 0.5),
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                children: [
+                  const Text(
+                    'Guess History',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  _guessHistoryListView,
+                ],
+              ),
+            ),
+            Row(
+              children: [],
             ),
           ],
         ),
