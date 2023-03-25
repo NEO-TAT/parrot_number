@@ -1,16 +1,51 @@
-# parrot_number
+# Parrot Number - Flutter Guess Number Game
 
-A new Flutter project.
+Parrot Number is a simple guessing game built using Flutter. The game involves guessing a number between 1 and 100, with the help of hints given by a parrot.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To get started with Parrot Number, clone the repository to your local machine using the following command:
 
-A few resources to get you started if this is your first Flutter project:
+```shell
+git clone https://github.com/your-username/parrot-number.git
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To install the required dependencies, run the following command:
+
+```shell
+flutter pub get
+```
+
+## Running the App
+
+To run the app on your local machine, run the following command:
+
+```shell
+flutter run
+```
+
+This will launch the app on your connected device or emulator.
+
+## Usage
+
+To play the game, simply enter a number between 1 and 100 and tap the "Guess" button. The parrot will give you hints to help you guess the correct number.
+
+## Branches
+
+This project is divided into multiple branches, each containing a different step in the development process.
+
+- `step-1` - Setup the basic UI for the game
+- `step-2` - Generate random number and take user input
+- `step-3` - Provide hints to the user
+- `step-4` - Add game reset functionality
+- `master` - Final code with all features included
+
+## Contributing
+
+Contributions to Parrot Number are welcome and encouraged! To contribute to the project, fork the repository and create a pull request with your changes.
+
+## License
+
+Parrot Number is open source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
