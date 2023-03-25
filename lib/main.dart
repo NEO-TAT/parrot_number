@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/pages/guess_page.dart';
 import 'package:parrot_number/pages/home_page.dart';
 
 void main() {
@@ -11,6 +12,6 @@ class ParrotNumberApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const MaterialApp(
         title: 'Parrot Number',
-        home: HomePage(),
+        home: GuessPage(),
       );
 }
