@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/widgets/action_button.dart';
 
 class GuessPage extends StatelessWidget {
   const GuessPage({super.key});
@@ -92,8 +93,25 @@ class GuessPage extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              children: [],
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ActionButton(
+                      text: 'Back',
+                      onPressed: () {},
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ActionButton(
+                      text: 'Restart',
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
