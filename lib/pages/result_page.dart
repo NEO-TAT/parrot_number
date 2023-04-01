@@ -4,7 +4,7 @@ import 'package:parrot_number/widgets/parrot_gif.dart';
 class ResultPage extends StatelessWidget {
   const ResultPage({super.key});
 
-  Widget get _titleText => const Text(
+  Widget get _title => const Text(
         'Congratulations!',
         style: TextStyle(
           color: Colors.white,
@@ -76,7 +76,7 @@ class ResultPage extends StatelessWidget {
               ),
               Column(
                 children: [
-                  _titleText,
+                  _title,
                   const SizedBox(height: 12),
                   _description,
                 ],

@@ -4,7 +4,7 @@ import 'package:parrot_number/widgets/parrot_gif.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  Widget get _titleText => const Text(
+  Widget get _title => const Text(
         'Parrot Number',
         style: TextStyle(
           color: Colors.white,
@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                 constraints: BoxConstraints.loose(const Size.square(160)),
                 child: const ParrotGif(),
               ),
-              _titleText,
+              _title,
               _startGameButton,
             ],
           ),
