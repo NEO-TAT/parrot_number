@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  Widget get _parrotGif => Image.asset(
-        'assets/parrot.gif',
-        fit: BoxFit.contain,
-      );
 
   Widget get _titleText => const Text(
         'Parrot Number',
@@ -68,7 +64,7 @@ class HomePage extends StatelessWidget {
             children: [
               ConstrainedBox(
                 constraints: BoxConstraints.loose(const Size.square(160)),
-                child: _parrotGif,
+                child: const ParrotGif(),
               ),
               _titleText,
               _startGameButton,

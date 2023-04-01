@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/action_button.dart';
+import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class GuessPage extends StatelessWidget {
   const GuessPage({super.key});
 
-  Widget get _parrotGif => Image.asset(
-        'assets/parrot.gif',
-        fit: BoxFit.contain,
-      );
-
   Widget get _messageRow => Row(
-        children: [
-          _parrotGif,
-          const Expanded(
+        children: const [
+          ParrotGif(),
+          Expanded(
             child: Text(
               '1 ~ 100',
               textAlign: TextAlign.center,
