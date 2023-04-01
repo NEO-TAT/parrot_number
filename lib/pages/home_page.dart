@@ -53,26 +53,24 @@ class HomePage extends StatelessWidget {
       );
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(gradient: _rainbowBackground),
-        width: double.infinity,
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ConstrainedBox(
-                constraints: BoxConstraints.loose(const Size.square(160)),
-                child: const ParrotGif(),
-              ),
-              _title,
-              _startGameButton,
-            ],
+  Widget build(BuildContext context) => Scaffold(
+        body: Container(
+          decoration: BoxDecoration(gradient: _rainbowBackground),
+          width: double.infinity,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints.loose(const Size.square(160)),
+                  child: const ParrotGif(),
+                ),
+                _title,
+                _startGameButton,
+              ],
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
