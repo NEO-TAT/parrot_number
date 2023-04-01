@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         ),
       );
 
-  Widget get _startGameButton => ElevatedButton(
+  Widget get _startGameButton => ElevatedButton.icon(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(240, 48),
@@ -26,7 +26,8 @@ class HomePage extends StatelessWidget {
           ),
           backgroundColor: Colors.black,
         ),
-        child: const Text('Start Game'),
+        icon: const Icon(Icons.play_arrow),
+        label: const Text('Start Game'),
       );
 
   LinearGradient get _rainbowBackground => const LinearGradient(

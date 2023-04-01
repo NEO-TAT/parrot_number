@@ -21,7 +21,7 @@ class ResultPage extends StatelessWidget {
         ),
       );
 
-  Widget get _shareResultsButton => ElevatedButton(
+  Widget get _shareResultsButton => ElevatedButton.icon(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(240, 48),
@@ -34,7 +34,8 @@ class ResultPage extends StatelessWidget {
           ),
           backgroundColor: Colors.black,
         ),
-        child: const Text('Share Results'),
+        icon: const Icon(Icons.share),
+        label: const Text('Share Results'),
       );
 
   LinearGradient get _rainbowBackground => const LinearGradient(

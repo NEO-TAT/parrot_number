@@ -96,6 +96,7 @@ class GuessPage extends StatelessWidget {
                   Expanded(
                     child: ActionButton(
                       text: 'Back',
+                      icon: const Icon(Icons.arrow_back),
                       onPressed: () {},
                     ),
                   ),
@@ -103,6 +104,7 @@ class GuessPage extends StatelessWidget {
                   Expanded(
                     child: ActionButton(
                       text: 'Restart',
+                      icon: const Icon(Icons.refresh),
                       onPressed: () {},
                     ),
                   ),
