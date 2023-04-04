@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
-class GuessPage extends StatelessWidget {
+class GuessPage extends StatefulWidget {
   const GuessPage({super.key});
 
+  @override
+  State<GuessPage> createState() => _GuessPageState();
+}
+
+class _GuessPageState extends State<GuessPage> {
   Widget get _messageRow => Row(
         children: const [
           ParrotGif(),
