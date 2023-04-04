@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
@@ -10,6 +12,9 @@ class GuessPage extends StatefulWidget {
 }
 
 class _GuessPageState extends State<GuessPage> {
+  static const _maxGuessNumber = 100;
+  final _random = Random();
+  int _answer = 0;
   Widget get _messageRow => Row(
         children: const [
           ParrotGif(),
@@ -57,6 +62,12 @@ class _GuessPageState extends State<GuessPage> {
           itemBuilder: (context, index) => ListTile(title: Text('Item $index')),
         ),
       );
+
+  @override
+  void initState() {
+    super.initState();
+    _setupGame();
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -121,4 +132,9 @@ class _GuessPageState extends State<GuessPage> {
           ),
         ),
       );
+
+  void _setupGame() {
+    _answer = _random.nextInt(_maxGuessNumber) + 1;
+    debugPrint('Answer: $_answer');
+  }
 }
