@@ -13,7 +13,9 @@ class GuessPage extends StatefulWidget {
 
 class _GuessPageState extends State<GuessPage> {
   static const _maxGuessNumber = 100;
-  final _random = Random();
+  final Random _random = Random();
+  final List<int> _guessHistory = [];
+  final TextEditingController _guessController = TextEditingController();
   int _answer = 0;
   int _minGuessLimit = 0;
   int _maxGuessLimit = 0;
@@ -36,10 +38,11 @@ class _GuessPageState extends State<GuessPage> {
       );
 
   Widget get _guessTextField => TextField(
+        controller: _guessController,
         decoration: InputDecoration(
           hintText: 'Enter a number',
           suffixIcon: IconButton(
-            onPressed: () {},
+            onPressed: _inputNumber,
             icon: const Icon(Icons.send, color: Colors.black),
           ),
           border: const OutlineInputBorder(
@@ -61,8 +64,8 @@ class _GuessPageState extends State<GuessPage> {
           borderRadius: BorderRadius.circular(32),
         ),
         child: ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) => ListTile(title: Text('Item $index')),
+          itemCount: _guessHistory.length,
+          itemBuilder: (context, index) => ListTile(title: Text('Guess ${index + 1} : ${_guessHistory[index]}')),
         ),
       );
 
@@ -140,6 +143,29 @@ class _GuessPageState extends State<GuessPage> {
     _answer = _random.nextInt(_maxGuessNumber) + 1;
     _minGuessLimit = 1;
     _maxGuessLimit = 100;
+    _guessHistory.clear();
+
     debugPrint('Answer: $_answer');
+  }
+
+  void _inputNumber() {
+    final guessNumber = int.tryParse(_guessController.text);
+    _guessController.text = '';
+    if (guessNumber == null) {
+      return;
+    }
+
+    if (guessNumber < _minGuessLimit || guessNumber > _maxGuessLimit) {
+      return;
+    }
+
+    if (guessNumber == _answer) {
+      debugPrint('You win!');
+      return;
+    }
+
+    setState(() {
+      _guessHistory.add(guessNumber);
+    });
   }
 }
