@@ -127,7 +127,7 @@ class _GuessPageState extends State<GuessPage> {
                         child: ActionButton(
                           text: 'Restart',
                           icon: const Icon(Icons.refresh),
-                          onPressed: () {},
+                          onPressed: _setupGame,
                         ),
                       ),
                     ],
@@ -140,12 +140,12 @@ class _GuessPageState extends State<GuessPage> {
       );
 
   void _setupGame() {
-    _answer = _random.nextInt(_maxGuessNumber) + 1;
-    _minGuessLimit = 1;
-    _maxGuessLimit = 100;
-    _guessHistory.clear();
-
-    debugPrint('Answer: $_answer');
+    setState(() {
+      _answer = _random.nextInt(_maxGuessNumber) + 1;
+      _minGuessLimit = 1;
+      _maxGuessLimit = 100;
+      _guessHistory.clear();
+    });
   }
 
   void _inputNumber() {
