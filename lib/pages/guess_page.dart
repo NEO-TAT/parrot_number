@@ -159,12 +159,14 @@ class _GuessPageState extends State<GuessPage> {
       return;
     }
 
-    if (guessNumber == _answer) {
-      debugPrint('You win!');
-      return;
-    }
-
     setState(() {
+      if (guessNumber == _answer) {
+        _maxGuessLimit = guessNumber;
+        _minGuessLimit = guessNumber;
+      } else {
+        _maxGuessLimit = guessNumber > _answer ? guessNumber : _maxGuessLimit;
+        _minGuessLimit = guessNumber < _answer ? guessNumber : _minGuessLimit;
+      }
       _guessHistory.add(guessNumber);
     });
   }
