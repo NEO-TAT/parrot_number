@@ -59,58 +59,60 @@ class GuessPage extends StatelessWidget {
           title: const Text('Guess Number'),
           backgroundColor: Colors.black,
         ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: _messageRow,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: _guessTextField,
-              ),
-              const Divider(color: Colors.grey, thickness: 0.5),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Guess History',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    _guessHistoryListView,
-                  ],
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: _messageRow,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: ActionButton(
-                        text: 'Back',
-                        icon: const Icon(Icons.arrow_back),
-                        onPressed: () {},
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: ActionButton(
-                        text: 'Restart',
-                        icon: const Icon(Icons.refresh),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: _guessTextField,
                 ),
-              ),
-            ],
+                const Divider(color: Colors.grey, thickness: 0.5),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Guess History',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      _guessHistoryListView,
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ActionButton(
+                          text: 'Back',
+                          icon: const Icon(Icons.arrow_back),
+                          onPressed: () {},
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ActionButton(
+                          text: 'Restart',
+                          icon: const Icon(Icons.refresh),
+                          onPressed: () {},
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
