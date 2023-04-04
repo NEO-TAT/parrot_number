@@ -15,14 +15,17 @@ class _GuessPageState extends State<GuessPage> {
   static const _maxGuessNumber = 100;
   final _random = Random();
   int _answer = 0;
+  int _minGuessLimit = 0;
+  int _maxGuessLimit = 0;
+
   Widget get _messageRow => Row(
-        children: const [
-          ParrotGif(),
+        children: [
+          const ParrotGif(),
           Expanded(
             child: Text(
-              '1 ~ 100',
+              '$_minGuessLimit ~ $_maxGuessLimit',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
@@ -135,6 +138,8 @@ class _GuessPageState extends State<GuessPage> {
 
   void _setupGame() {
     _answer = _random.nextInt(_maxGuessNumber) + 1;
+    _minGuessLimit = 1;
+    _maxGuessLimit = 100;
     debugPrint('Answer: $_answer');
   }
 }
