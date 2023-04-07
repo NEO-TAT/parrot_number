@@ -13,7 +13,7 @@ class GuessPage extends StatefulWidget {
 
 class _GuessPageState extends State<GuessPage> {
   static const _maxGuessNumber = 100;
-  final Random _random = Random();
+  final Random _random = Random.secure();
   final List<int> _guessHistory = [];
   final TextEditingController _guessController = TextEditingController();
   int _answer = 0;
