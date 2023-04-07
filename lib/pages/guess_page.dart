@@ -66,7 +66,15 @@ class _GuessPageState extends State<GuessPage> {
         ),
         child: ListView.builder(
           itemCount: _guessHistory.length,
-          itemBuilder: (context, index) => ListTile(title: Text('Guess ${index + 1} : ${_guessHistory[index]}')),
+          itemBuilder: (context, index) {
+            final reversedIndex = _guessHistory.length - index;
+            return ListTile(
+              title: Text(
+                'Guess $reversedIndex :'
+                '${_guessHistory[reversedIndex - 1]}',
+              ),
+            );
+          },
         ),
       );
 
