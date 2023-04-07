@@ -171,7 +171,6 @@ class _GuessPageState extends State<GuessPage> {
       return;
     }
 
-    // TODO: navigate to result page when input correct answer
     setState(() {
       if (guessNumber >= _answer) {
         _maxGuessLimit = guessNumber;
@@ -181,5 +180,7 @@ class _GuessPageState extends State<GuessPage> {
       }
       _guessHistory.add(guessNumber);
     });
+
+    // TODO: navigate to result page when input correct answer
   }
 }
