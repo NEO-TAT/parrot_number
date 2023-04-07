@@ -150,7 +150,7 @@ class _GuessPageState extends State<GuessPage> {
 
   void _onGuessNumberSubmitted() {
     final guessNumber = int.tryParse(_guessController.text);
-    _guessController.text = '';
+    _guessController.clear();
     if (guessNumber == null) {
       return;
     }
