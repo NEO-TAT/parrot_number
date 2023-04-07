@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
+const _maxGuessNumber = 100;
+
 class GuessPage extends StatefulWidget {
   const GuessPage({super.key});
 
@@ -12,7 +14,6 @@ class GuessPage extends StatefulWidget {
 }
 
 class _GuessPageState extends State<GuessPage> {
-  static const _maxGuessNumber = 100;
   final Random _random = Random.secure();
   final List<int> _guessHistory = [];
   final TextEditingController _guessController = TextEditingController();
@@ -143,7 +144,7 @@ class _GuessPageState extends State<GuessPage> {
     setState(() {
       _answer = _random.nextInt(_maxGuessNumber) + 1;
       _minGuessLimit = 1;
-      _maxGuessLimit = 100;
+      _maxGuessLimit = _maxGuessNumber;
       _guessHistory.clear();
     });
   }
