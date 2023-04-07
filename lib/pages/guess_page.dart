@@ -42,7 +42,7 @@ class _GuessPageState extends State<GuessPage> {
         decoration: InputDecoration(
           hintText: 'Enter a number',
           suffixIcon: IconButton(
-            onPressed: _inputNumber,
+            onPressed: _onGuessNumberSubmitted,
             icon: const Icon(Icons.send, color: Colors.black),
           ),
           border: const OutlineInputBorder(
@@ -72,7 +72,7 @@ class _GuessPageState extends State<GuessPage> {
   @override
   void initState() {
     super.initState();
-    _setupGame();
+    _setupNewGame();
   }
 
   @override
@@ -127,7 +127,7 @@ class _GuessPageState extends State<GuessPage> {
                         child: ActionButton(
                           text: 'Restart',
                           icon: const Icon(Icons.refresh),
-                          onPressed: _setupGame,
+                          onPressed: _setupNewGame,
                         ),
                       ),
                     ],
@@ -139,7 +139,7 @@ class _GuessPageState extends State<GuessPage> {
         ),
       );
 
-  void _setupGame() {
+  void _setupNewGame() {
     setState(() {
       _answer = _random.nextInt(_maxGuessNumber) + 1;
       _minGuessLimit = 1;
@@ -148,7 +148,7 @@ class _GuessPageState extends State<GuessPage> {
     });
   }
 
-  void _inputNumber() {
+  void _onGuessNumberSubmitted() {
     final guessNumber = int.tryParse(_guessController.text);
     _guessController.text = '';
     if (guessNumber == null) {
