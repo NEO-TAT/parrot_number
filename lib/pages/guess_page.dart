@@ -160,12 +160,11 @@ class _GuessPageState extends State<GuessPage> {
     }
 
     setState(() {
-      if (guessNumber == _answer) {
+      if (guessNumber >= _answer) {
         _maxGuessLimit = guessNumber;
+      }
+      if (guessNumber <= _answer) {
         _minGuessLimit = guessNumber;
-      } else {
-        _maxGuessLimit = guessNumber > _answer ? guessNumber : _maxGuessLimit;
-        _minGuessLimit = guessNumber < _answer ? guessNumber : _minGuessLimit;
       }
       _guessHistory.add(guessNumber);
     });
