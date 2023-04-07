@@ -160,14 +160,18 @@ class _GuessPageState extends State<GuessPage> {
   void _onGuessNumberSubmitted() {
     final guessNumber = int.tryParse(_guessController.text);
     _guessController.clear();
+
     if (guessNumber == null) {
+      // TODO: show message for invalid input
       return;
     }
 
     if (guessNumber < _minGuessLimit || guessNumber > _maxGuessLimit) {
+      // TODO: show message for out of range
       return;
     }
 
+    // TODO: navigate to result page when input correct answer
     setState(() {
       if (guessNumber >= _answer) {
         _maxGuessLimit = guessNumber;
