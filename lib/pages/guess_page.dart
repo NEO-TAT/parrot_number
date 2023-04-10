@@ -128,7 +128,7 @@ class _GuessPageState extends State<GuessPage> {
                         child: ActionButton(
                           text: 'Back',
                           icon: const Icon(Icons.arrow_back),
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context).pop(),
                         ),
                       ),
                       const SizedBox(width: 8),
