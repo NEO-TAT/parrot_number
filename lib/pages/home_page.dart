@@ -44,7 +44,6 @@ class HomePage extends StatelessWidget {
           child: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints.loose(const Size.square(160)),
