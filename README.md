@@ -38,8 +38,8 @@ This project is divided into multiple branches, each containing a different step
 
 - `step-1` - Setup the basic UI for the game
 - `step-2` - Generate random number and take user input
-- `step-3` - Provide hints to the user
-- `step-4` - Add game reset functionality
+- `step-3` - Setup app navigation
+- `step-4` - Additional features
 - `master` - Final code with all features included
 
 ## Contributing
