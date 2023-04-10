@@ -22,6 +22,8 @@ class _GuessPageState extends State<GuessPage> {
   int _minGuessLimit = 0;
   int _maxGuessLimit = 0;
 
+  bool get _isAnswerGuessed => _minGuessLimit == _maxGuessLimit;
+
   Widget get _messageRow => Row(
         children: [
           const ParrotGif(),
@@ -40,11 +42,12 @@ class _GuessPageState extends State<GuessPage> {
       );
 
   Widget get _guessTextField => TextField(
+        enabled: !_isAnswerGuessed,
         controller: _guessController,
         decoration: InputDecoration(
           hintText: 'Enter a number',
           suffixIcon: IconButton(
-            onPressed: _onGuessNumberSubmitted,
+            onPressed: _isAnswerGuessed ? null : _onGuessNumberSubmitted,
             icon: const Icon(Icons.send, color: Colors.black),
           ),
           border: const OutlineInputBorder(
