@@ -24,12 +24,14 @@ class _GuessPageState extends State<GuessPage> {
 
   bool get _isAnswerGuessed => _minGuessLimit == _maxGuessLimit;
 
+  String get _messageRowText => _isAnswerGuessed ? 'You got it!' : '$_minGuessLimit ~ $_maxGuessLimit';
+
   Widget get _messageRow => Row(
         children: [
           const ParrotGif(),
           Expanded(
             child: Text(
-              '$_minGuessLimit ~ $_maxGuessLimit',
+              _messageRowText,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.black,
@@ -74,7 +76,7 @@ class _GuessPageState extends State<GuessPage> {
             final reversedIndex = _guessHistory.length - index;
             return ListTile(
               title: Text(
-                'Guess $reversedIndex :'
+                'Guess $reversedIndex : '
                 '${_guessHistory[reversedIndex - 1]}',
               ),
             );
