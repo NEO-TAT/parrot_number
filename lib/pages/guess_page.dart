@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:parrot_number/pages/result_page.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
@@ -157,7 +158,7 @@ class _GuessPageState extends State<GuessPage> {
     });
   }
 
-  void _onGuessNumberSubmitted() {
+  void _onGuessNumberSubmitted() async {
     final guessNumber = int.tryParse(_guessController.text);
     _guessController.clear();
 
@@ -181,6 +182,12 @@ class _GuessPageState extends State<GuessPage> {
       _guessHistory.add(guessNumber);
     });
 
-    // TODO: navigate to result page when input correct answer
+    if (guessNumber == _answer) {
+      Future.delayed(const Duration(seconds: 2)).then((value) {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const ResultPage()),
+        );
+      });
+    }
   }
 }
