@@ -190,7 +190,7 @@ class _GuessPageState extends State<GuessPage> {
     if (guessNumber == _answer) {
       Future.delayed(const Duration(seconds: 2)).then((value) {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const ResultPage()),
+          MaterialPageRoute(builder: (context) => ResultPage(guessCount: _guessHistory.length)),
         );
       });
     }
