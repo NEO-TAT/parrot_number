@@ -187,7 +187,7 @@ class _GuessPageState extends State<GuessPage> {
       _guessHistory.add(guessNumber);
     });
 
-    if (guessNumber == _answer) {
+    if (_isAnswerGuessed) {
       Future.delayed(const Duration(seconds: 2)).then((value) {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => ResultPage(guessCount: _guessHistory.length)),
