@@ -189,6 +189,10 @@ class _GuessPageState extends State<GuessPage> {
 
     if (_isAnswerGuessed) {
       Future.delayed(const Duration(seconds: 2)).then((value) {
+        if (!mounted) {
+          return;
+        }
+
         Navigator.of(context).push(
           MaterialPageRoute(builder: (context) => ResultPage(guessCount: _guessHistory.length)),
         );
