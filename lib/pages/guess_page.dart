@@ -49,7 +49,7 @@ class _GuessPageState extends State<GuessPage> {
         decoration: InputDecoration(
           hintText: 'Enter a number',
           suffixIcon: IconButton(
-            onPressed: _isAnswerGuessed ? null : _onGuessNumberSubmitted,
+            onPressed: _onGuessNumberSubmitted,
             icon: const Icon(Icons.send, color: Colors.black),
           ),
           border: const OutlineInputBorder(
