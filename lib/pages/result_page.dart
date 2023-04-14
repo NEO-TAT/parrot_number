@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({super.key, required this.guessCount});
 
   final int guessCount;
+
+  String get _shareDescription => '''
+  I guessed the answer in $guessCount times!
+  Play Parrot Number now!
+  ''';
 
   Widget get _title => const Text(
         'Congratulations!',
@@ -21,7 +27,7 @@ class ResultPage extends StatelessWidget {
       );
 
   Widget get _shareResultsButton => ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () => Share.share(_shareDescription),
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(240, 48),
           shape: RoundedRectangleBorder(
