@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage({super.key, required this.guessCount});
+
+  final int guessCount;
 
   Widget get _title => const Text(
         'Congratulations!',
@@ -13,12 +15,9 @@ class ResultPage extends StatelessWidget {
         ),
       );
 
-  Widget get _description => const Text(
-        'You guessed the answer in 5 times.',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-        ),
+  Widget get _description => Text(
+        'You guessed the answer in $guessCount times.',
+        style: const TextStyle(color: Colors.white, fontSize: 16),
       );
 
   Widget get _shareResultsButton => ElevatedButton.icon(
@@ -28,10 +27,7 @@ class ResultPage extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
           ),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           backgroundColor: Colors.black,
         ),
         icon: const Icon(Icons.share),

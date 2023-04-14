@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/pages/guess_page.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,23 +12,6 @@ class HomePage extends StatelessWidget {
           fontSize: 36,
           fontWeight: FontWeight.bold,
         ),
-      );
-
-  Widget get _startGameButton => ElevatedButton.icon(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          fixedSize: const Size(240, 48),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          backgroundColor: Colors.black,
-        ),
-        icon: const Icon(Icons.play_arrow),
-        label: const Text('Start Game'),
       );
 
   LinearGradient get _rainbowBackground => const LinearGradient(
@@ -60,17 +44,37 @@ class HomePage extends StatelessWidget {
           child: SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints.loose(const Size.square(160)),
                   child: const ParrotGif(),
                 ),
                 _title,
-                _startGameButton,
+                _startGameButton(
+                  onButtonPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const GuessPage()),
+                  ),
+                ),
               ],
             ),
           ),
         ),
+      );
+
+  Widget _startGameButton({required VoidCallback onButtonPressed}) => ElevatedButton.icon(
+        onPressed: onButtonPressed,
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(240, 48),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          backgroundColor: Colors.black,
+        ),
+        icon: const Icon(Icons.play_arrow),
+        label: const Text('Start Game'),
       );
 }

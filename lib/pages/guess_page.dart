@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:parrot_number/pages/result_page.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
@@ -21,12 +22,16 @@ class _GuessPageState extends State<GuessPage> {
   int _minGuessLimit = 0;
   int _maxGuessLimit = 0;
 
+  bool get _isAnswerGuessed => _minGuessLimit == _maxGuessLimit;
+
+  String get _messageRowText => _isAnswerGuessed ? 'You got it!' : '$_minGuessLimit ~ $_maxGuessLimit';
+
   Widget get _messageRow => Row(
         children: [
           const ParrotGif(),
           Expanded(
             child: Text(
-              '$_minGuessLimit ~ $_maxGuessLimit',
+              _messageRowText,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.black,
@@ -39,6 +44,7 @@ class _GuessPageState extends State<GuessPage> {
       );
 
   Widget get _guessTextField => TextField(
+        enabled: !_isAnswerGuessed,
         controller: _guessController,
         decoration: InputDecoration(
           hintText: 'Enter a number',
@@ -70,7 +76,7 @@ class _GuessPageState extends State<GuessPage> {
             final reversedIndex = _guessHistory.length - index;
             return ListTile(
               title: Text(
-                'Guess $reversedIndex :'
+                'Guess $reversedIndex : '
                 '${_guessHistory[reversedIndex - 1]}',
               ),
             );
@@ -128,7 +134,7 @@ class _GuessPageState extends State<GuessPage> {
                         child: ActionButton(
                           text: 'Back',
                           icon: const Icon(Icons.arrow_back),
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context).pop(),
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -181,6 +187,16 @@ class _GuessPageState extends State<GuessPage> {
       _guessHistory.add(guessNumber);
     });
 
-    // TODO: navigate to result page when input correct answer
+    if (_isAnswerGuessed) {
+      Future.delayed(const Duration(seconds: 2)).then((value) {
+        if (!mounted) {
+          return;
+        }
+
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => ResultPage(guessCount: _guessHistory.length)),
+        );
+      });
+    }
   }
 }
