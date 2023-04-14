@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:parrot_number/pages/result_page.dart';
 import 'package:parrot_number/widgets/action_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
+import 'package:parrot_number/widgets/snack_bar_view.dart';
 
 const _maxGuessNumber = 100;
 
@@ -168,12 +169,18 @@ class _GuessPageState extends State<GuessPage> {
     _guessController.clear();
 
     if (guessNumber == null) {
-      // TODO: show message for invalid input
+      SnackBarView.show(
+        context: context,
+        message: 'Please enter a valid number',
+      );
       return;
     }
 
     if (guessNumber < _minGuessLimit || guessNumber > _maxGuessLimit) {
-      // TODO: show message for out of range
+      SnackBarView.show(
+        context: context,
+        message: 'Please enter a number between $_minGuessLimit and $_maxGuessLimit',
+      );
       return;
     }
 
