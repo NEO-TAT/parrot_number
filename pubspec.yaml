@@ -41,6 +41,14 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.1
   dependency_validator: ^3.2.2
+  flutter_launcher_icons: ^0.13.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/parrot.jpg'
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: 'assets/parrot.jpg'
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
