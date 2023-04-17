@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/config/colors.dart';
+import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/pages/guess_page.dart';
 import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
@@ -9,7 +10,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   Widget get _title => const Text(
-        'Parrot Number',
+        Strings.appName,
         style: TextStyle(
           color: Colors.white,
           fontSize: 36,
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
                 Animate(
                   effects: [FlipEffect(delay: 500.ms)],
                   child: CustomElevatedButton(
-                    text: 'Start Game',
+                    text: Strings.startGame,
                     icon: const Icon(Icons.play_arrow),
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const GuessPage()),

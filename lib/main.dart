@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/pages/home_page.dart';
 
 void main() {
@@ -10,10 +11,8 @@ class ParrotNumberApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Parrot Number',
-        theme: ThemeData(
-          fontFamily: 'TATFont',
-        ),
+        title: Strings.appName,
+        theme: ThemeData(fontFamily: 'TATFont'),
         home: const HomePage(),
       );
 }

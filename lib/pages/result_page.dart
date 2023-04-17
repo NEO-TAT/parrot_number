@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/config/colors.dart';
+import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:share_plus/share_plus.dart';
@@ -10,13 +11,8 @@ class ResultPage extends StatelessWidget {
 
   final int guessCount;
 
-  String get _shareDescription => '''
-  I guessed the answer in $guessCount times!
-  Play Parrot Number now!
-  ''';
-
   Widget get _title => const Text(
-        'Congratulations!',
+        Strings.congratulations,
         style: TextStyle(
           color: Colors.white,
           fontSize: 36,
@@ -25,7 +21,7 @@ class ResultPage extends StatelessWidget {
       );
 
   Widget get _description => Text(
-        'You guessed the answer in $guessCount times.',
+        Strings.guessTimes(guessCount),
         style: const TextStyle(color: Colors.white, fontSize: 16),
       );
 
@@ -66,8 +62,8 @@ class ResultPage extends StatelessWidget {
                   effects: [FlipEffect(delay: 1200.ms)],
                   child: CustomElevatedButton(
                     icon: const Icon(Icons.share),
-                    text: 'Share Results',
-                    onPressed: () => Share.share(_shareDescription),
+                    text: Strings.shareResults,
+                    onPressed: () => Share.share(Strings.shareDescription(guessCount)),
                   ),
                 ),
               ],
