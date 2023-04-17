@@ -11,7 +11,9 @@ class ParrotNumberApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         title: 'Parrot Number',
-        theme: ThemeData(fontFamily: 'TATFont'),
+        theme: ThemeData(
+          fontFamily: 'TATFont',
+        ),
         home: const HomePage(),
       );
 }
