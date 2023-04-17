@@ -7,9 +7,9 @@ import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key, required this.guessCount});
+  const ResultPage({super.key, required int guessCount}) : _guessCount = guessCount;
 
-  final int guessCount;
+  final int _guessCount;
 
   Widget get _title => const Text(
         Strings.congratulations,
@@ -21,14 +21,14 @@ class ResultPage extends StatelessWidget {
       );
 
   Widget get _description => Text(
-        Strings.guessTimes(guessCount),
+        Strings.guessTimes(_guessCount),
         style: const TextStyle(color: Colors.white, fontSize: 16),
       );
 
   LinearGradient get _rainbowBackground => const LinearGradient(
         begin: Alignment.bottomRight,
         end: Alignment.topLeft,
-        colors: rainbowBackground,
+        colors: rainbowBackgroundColor,
       );
 
   @override
@@ -63,7 +63,7 @@ class ResultPage extends StatelessWidget {
                   child: CustomElevatedButton(
                     icon: const Icon(Icons.share),
                     text: Strings.shareResults,
-                    onPressed: () => Share.share(Strings.shareDescription(guessCount)),
+                    onPressed: () => Share.share(Strings.shareDescription(_guessCount)),
                   ),
                 ),
               ],
