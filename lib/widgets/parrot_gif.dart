@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class ParrotGif extends StatelessWidget {
   const ParrotGif({super.key});
 
+  static const _tag = 'parrot';
+  static const _gifPath = 'assets/images/parrot.gif';
+
   @override
   Widget build(BuildContext context) => Hero(
-        tag: 'parrot',
-        child: Image.asset('assets/parrot.gif', fit: BoxFit.contain),
+        tag: _tag,
+        child: Image.asset(_gifPath, fit: BoxFit.contain),
       );
 }

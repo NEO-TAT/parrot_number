@@ -21,15 +21,15 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: 'assets/parrot.jpg'
+  image_path: 'assets/images/parrot.jpg'
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: 'assets/parrot.jpg'
+  adaptive_icon_foreground: 'assets/images/parrot.jpg'
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/images/
 
   fonts:
     - family: TATFont
