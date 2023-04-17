@@ -13,8 +13,7 @@ class Strings {
   static const String back = 'Back';
   static const String restart = 'Restart';
   static const String invalidNumberMessage = 'Please enter a valid number';
-  static String guessNumberLimitMessage(int min, int max) =>
-      'Please enter a number between $min and $max';
+  static String guessNumberLimitMessage(int min, int max) => 'Please enter a number between $min and $max';
 
   // Result Page
   static const String congratulations = 'Congratulations!';
@@ -24,5 +23,4 @@ class Strings {
   I guessed the answer in $guessCount times!
   Play Parrot Number now!
   ''';
-
 }
