@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:share_plus/share_plus.dart';
@@ -63,17 +64,26 @@ class ResultPage extends StatelessWidget {
                   constraints: BoxConstraints.loose(const Size.square(160)),
                   child: const ParrotGif(),
                 ),
-                Column(
-                  children: [
-                    _title,
-                    const SizedBox(height: 12),
-                    _description,
-                  ],
+                Animate(
+                  effects: [ScaleEffect(duration: 500.ms)],
+                  child: Column(
+                    children: [
+                      _title,
+                      const SizedBox(height: 16),
+                      Animate(
+                        effects: [ShakeEffect(delay: 750.ms, hz: 4)],
+                        child: _description,
+                      ),
+                    ],
+                  ),
                 ),
-                CustomElevatedButton(
-                  icon: const Icon(Icons.share),
-                  text: 'Share Results',
-                  onPressed: () => Share.share(_shareDescription),
+                Animate(
+                  effects: [FlipEffect(delay: 1200.ms)],
+                  child: CustomElevatedButton(
+                    icon: const Icon(Icons.share),
+                    text: 'Share Results',
+                    onPressed: () => Share.share(_shareDescription),
+                  ),
                 ),
               ],
             ),

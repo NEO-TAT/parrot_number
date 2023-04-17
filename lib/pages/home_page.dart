@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/pages/guess_page.dart';
 import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
@@ -50,12 +51,15 @@ class HomePage extends StatelessWidget {
                   constraints: BoxConstraints.loose(const Size.square(160)),
                   child: const ParrotGif(),
                 ),
-                _title,
-                CustomElevatedButton(
-                  text: 'Start Game',
-                  icon: const Icon(Icons.play_arrow),
-                  onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => const GuessPage()),
+                Animate(effects: const [ScaleEffect()], child: _title),
+                Animate(
+                  effects: [FlipEffect(delay: 500.ms)],
+                  child: CustomElevatedButton(
+                    text: 'Start Game',
+                    icon: const Icon(Icons.play_arrow),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const GuessPage()),
+                    ),
                   ),
                 ),
               ],
