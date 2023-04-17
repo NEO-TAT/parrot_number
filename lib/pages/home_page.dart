@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parrot_number/pages/guess_page.dart';
+import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class HomePage extends StatelessWidget {
@@ -50,8 +51,10 @@ class HomePage extends StatelessWidget {
                   child: const ParrotGif(),
                 ),
                 _title,
-                _startGameButton(
-                  onButtonPressed: () => Navigator.of(context).push(
+                CustomElevatedButton(
+                  text: 'Start Game',
+                  icon: const Icon(Icons.play_arrow),
+                  onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => const GuessPage()),
                   ),
                 ),
@@ -59,22 +62,5 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
-      );
-
-  Widget _startGameButton({required VoidCallback onButtonPressed}) => ElevatedButton.icon(
-        onPressed: onButtonPressed,
-        style: ElevatedButton.styleFrom(
-          fixedSize: const Size(240, 48),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
-          textStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          backgroundColor: Colors.black,
-        ),
-        icon: const Icon(Icons.play_arrow),
-        label: const Text('Start Game'),
       );
 }

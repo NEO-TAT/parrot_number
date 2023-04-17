@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:parrot_number/pages/result_page.dart';
-import 'package:parrot_number/widgets/action_button.dart';
+import 'package:parrot_number/widgets/custom_outlined_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:parrot_number/widgets/snack_bar_view.dart';
 
@@ -132,7 +132,7 @@ class _GuessPageState extends State<GuessPage> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: ActionButton(
+                        child: CustomOutlinedButton(
                           text: 'Back',
                           icon: const Icon(Icons.arrow_back),
                           onPressed: () => Navigator.of(context).pop(),
@@ -140,7 +140,7 @@ class _GuessPageState extends State<GuessPage> {
                       ),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: ActionButton(
+                        child: CustomOutlinedButton(
                           text: 'Restart',
                           icon: const Icon(Icons.refresh),
                           onPressed: _setupNewGame,

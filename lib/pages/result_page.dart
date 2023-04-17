@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/widgets/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -24,20 +25,6 @@ class ResultPage extends StatelessWidget {
   Widget get _description => Text(
         'You guessed the answer in $guessCount times.',
         style: const TextStyle(color: Colors.white, fontSize: 16),
-      );
-
-  Widget get _shareResultsButton => ElevatedButton.icon(
-        onPressed: () => Share.share(_shareDescription),
-        style: ElevatedButton.styleFrom(
-          fixedSize: const Size(240, 48),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          backgroundColor: Colors.black,
-        ),
-        icon: const Icon(Icons.share),
-        label: const Text('Share Results'),
       );
 
   LinearGradient get _rainbowBackground => const LinearGradient(
@@ -83,7 +70,11 @@ class ResultPage extends StatelessWidget {
                     _description,
                   ],
                 ),
-                _shareResultsButton,
+                CustomElevatedButton(
+                  icon: const Icon(Icons.share),
+                  text: 'Share Results',
+                  onPressed: () => Share.share(_shareDescription),
+                ),
               ],
             ),
           ),
