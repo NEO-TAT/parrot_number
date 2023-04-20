@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
   LinearGradient get _rainbowBackground => const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: rainbowBackgroundColor,
+        colors: rainbowBackgroundColors,
       );
 
   @override

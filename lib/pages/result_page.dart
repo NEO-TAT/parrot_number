@@ -28,7 +28,7 @@ class ResultPage extends StatelessWidget {
   LinearGradient get _rainbowBackground => const LinearGradient(
         begin: Alignment.bottomRight,
         end: Alignment.topLeft,
-        colors: rainbowBackgroundColor,
+        colors: rainbowBackgroundColors,
       );
 
   @override

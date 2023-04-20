@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-const rainbowBackgroundColor = [
+const rainbowBackgroundColors = [
   Color(0xFFE91E63),
   Color(0xFF9C27B0),
   Color(0xFF673AB7),
