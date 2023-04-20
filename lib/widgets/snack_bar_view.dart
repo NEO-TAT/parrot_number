@@ -7,7 +7,7 @@ class SnackBarView {
     Duration duration = const Duration(seconds: 2),
   }) {
     final messenger = ScaffoldMessenger.of(context);
-    messenger.hideCurrentSnackBar();
+    messenger.removeCurrentSnackBar();
 
     final snackBar = SnackBar(content: Text(message), duration: duration);
     messenger.showSnackBar(snackBar);
