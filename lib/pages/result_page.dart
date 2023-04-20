@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/config/colors.dart';
 import 'package:parrot_number/config/strings.dart';
-import 'package:parrot_number/widgets/custom_elevated_button.dart';
+import 'package:parrot_number/widgets/button/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:share_plus/share_plus.dart';
 

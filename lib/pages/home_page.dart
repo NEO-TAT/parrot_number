@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:parrot_number/config/colors.dart';
 import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/pages/guess_page.dart';
-import 'package:parrot_number/widgets/custom_elevated_button.dart';
+import 'package:parrot_number/widgets/button/custom_elevated_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 
 class HomePage extends StatelessWidget {

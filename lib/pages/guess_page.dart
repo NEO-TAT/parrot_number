@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/pages/result_page.dart';
-import 'package:parrot_number/widgets/custom_outlined_button.dart';
+import 'package:parrot_number/widgets/button/custom_outlined_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
 import 'package:parrot_number/widgets/snack_bar_view.dart';
 
