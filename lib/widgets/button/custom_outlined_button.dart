@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:parrot_number/widgets/button/custom_button_mixin.dart';
 
-class CustomOutlinedButton extends StatelessWidget {
+class CustomOutlinedButton extends StatelessWidget with CustomButtonMixin {
   const CustomOutlinedButton({
     super.key,
     required this.text,
@@ -12,24 +13,16 @@ class CustomOutlinedButton extends StatelessWidget {
   final Icon icon;
   final VoidCallback? onPressed;
 
-  static const _buttonTextStyle = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'TATFont',
-  );
-
   @override
   Widget build(BuildContext context) => OutlinedButton.icon(
         label: Text(text, style: const TextStyle(color: Colors.black)),
         icon: icon,
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          fixedSize: const Size(240, 48),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
+          fixedSize: buttonSize,
+          shape: buttonShape,
+          textStyle: buttonTextStyle,
           foregroundColor: Colors.black,
-          textStyle: _buttonTextStyle,
           side: const BorderSide(color: Colors.black, width: 2),
         ),
       );
