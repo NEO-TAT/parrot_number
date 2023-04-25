@@ -1,9 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:parrot_number/config/strings.dart';
 import 'package:parrot_number/pages/result_page.dart';
-import 'package:parrot_number/widgets/action_button.dart';
+import 'package:parrot_number/widgets/button/custom_outlined_button.dart';
 import 'package:parrot_number/widgets/parrot_gif.dart';
+import 'package:parrot_number/widgets/snack_bar_view.dart';
 
 const _maxGuessNumber = 100;
 
@@ -24,7 +26,7 @@ class _GuessPageState extends State<GuessPage> {
 
   bool get _isAnswerGuessed => _minGuessLimit == _maxGuessLimit;
 
-  String get _messageRowText => _isAnswerGuessed ? 'You got it!' : '$_minGuessLimit ~ $_maxGuessLimit';
+  String get _messageRowText => _isAnswerGuessed ? Strings.winMessage : '$_minGuessLimit ~ $_maxGuessLimit';
 
   Widget get _messageRow => Row(
         children: [
@@ -47,7 +49,7 @@ class _GuessPageState extends State<GuessPage> {
         enabled: !_isAnswerGuessed,
         controller: _guessController,
         decoration: InputDecoration(
-          hintText: 'Enter a number',
+          hintText: Strings.guessNumberHint,
           suffixIcon: IconButton(
             onPressed: _onGuessNumberSubmitted,
             icon: const Icon(Icons.send, color: Colors.black),
@@ -76,7 +78,7 @@ class _GuessPageState extends State<GuessPage> {
             final reversedIndex = _guessHistory.length - index;
             return ListTile(
               title: Text(
-                'Guess $reversedIndex : '
+                '${Strings.guess} $reversedIndex : '
                 '${_guessHistory[reversedIndex - 1]}',
               ),
             );
@@ -93,7 +95,7 @@ class _GuessPageState extends State<GuessPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Guess Number'),
+          title: const Text(Strings.guessNumber),
           backgroundColor: Colors.black,
         ),
         body: SingleChildScrollView(
@@ -114,7 +116,7 @@ class _GuessPageState extends State<GuessPage> {
                   child: Column(
                     children: [
                       const Text(
-                        'Guess History',
+                        Strings.guessHistory,
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 24,
@@ -131,16 +133,16 @@ class _GuessPageState extends State<GuessPage> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: ActionButton(
-                          text: 'Back',
+                        child: CustomOutlinedButton(
+                          text: Strings.back,
                           icon: const Icon(Icons.arrow_back),
                           onPressed: () => Navigator.of(context).pop(),
                         ),
                       ),
                       const SizedBox(width: 8),
                       Expanded(
-                        child: ActionButton(
-                          text: 'Restart',
+                        child: CustomOutlinedButton(
+                          text: Strings.restart,
                           icon: const Icon(Icons.refresh),
                           onPressed: _setupNewGame,
                         ),
@@ -168,12 +170,15 @@ class _GuessPageState extends State<GuessPage> {
     _guessController.clear();
 
     if (guessNumber == null) {
-      // TODO: show message for invalid input
+      SnackBarView.show(context: context, message: Strings.invalidNumberMessage);
       return;
     }
 
     if (guessNumber < _minGuessLimit || guessNumber > _maxGuessLimit) {
-      // TODO: show message for out of range
+      SnackBarView.show(
+        context: context,
+        message: Strings.guessNumberLimitMessage(_minGuessLimit, _maxGuessLimit),
+      );
       return;
     }
 
